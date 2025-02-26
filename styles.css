@@ -1,0 +1,431 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+}
+
+body {
+    background: #0a192f;
+    color: #64ffda;
+}
+
+
+
+.hero {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(45deg, #0a192f, #172a45);
+    position: relative;
+    overflow: hidden;
+    
+}
+#spiderweb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 5;
+   
+}
+
+
+
+
+.services {
+    padding: 50px 20px;
+    background: #020c1b;
+    position: relative;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Glass effect */
+    background-blend-mode: overlay;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(17,34,64,0.9) 20%, rgba(17,34,64,0.4) 60%);
+    z-index: 1;
+}
+
+/* Add glass reflection effect */
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.01) 50%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    transform: rotate(30deg);
+    z-index: 2;
+    pointer-events: none;
+    animation: glass-reflect 8s infinite linear;
+}
+
+@keyframes glass-reflect {
+    0% { transform: translateY(-100%) rotate(30deg); }
+    100% { transform: translateY(100%) rotate(30deg); }
+}
+
+
+.service-card > * {
+    position: relative;
+    z-index: 3;
+}
+
+.service-card:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); }
+.service-card:nth-child(2) { background-image: url('https://cf-assets.www.cloudflare.com/zkvhlag99gkb/1CcMpQn5JUAxQK64qZT2n5/219e5f90d57587e8460a6b2d82784d7f/image1-23.png'); }
+.service-card:nth-child(3) { background-image: url('https://media.istockphoto.com/id/1448152453/vector/big-data-technology-and-data-science-illustration-data-flow-concept-querying-analysing.jpg?s=1024x1024&w=is&k=20&c=INMsT5od0nLuKgWn0y_1UkzhuJL_LDs7yF3aZh-_dqY='); }
+.service-card:nth-child(4) { background-image: url('https://xira.ai/wp-content/uploads/2023/05/img13.png.webp'); }
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    filter: brightness(1.1);
+    box-shadow: 0 15px 30px rgba(100, 255, 218, 0.1);
+    border: 1px solid rgba(100, 255, 218, 0.3);
+}
+
+.service-card:hover::after {
+    animation-duration: 4s;
+    opacity: 0.5;
+}
+.service-price {
+    font-size: 1rem;
+    color: #64ffda;
+    margin: 8px auto; /* Center horizontally */
+    padding: 3px 12px;
+    background: rgba(100, 255, 218, 0.1);
+    border-radius: 12px;
+    display: inline-block;
+    border: 1px solid #64ffda;
+    box-shadow: 0 0 8px rgba(100, 255, 218, 0.2);
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: center; /* Center text */
+    min-width: 100px; /* Consistent width */
+}
+
+.service-card:hover .service-price {
+    transform: scale(1.02);
+    background: rgba(100, 255, 218, 0.15);
+    box-shadow: 0 0 12px rgba(100, 255, 218, 0.25);
+}
+
+/* Project part start */
+
+.projects {
+    padding: 50px 20px;
+    background: #020c1b;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: rgba(17, 34, 64, 0.3);
+    padding: 25px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    box-shadow: 0 15px 30px rgba(100, 255, 218, 0.1);
+}
+
+.project-card .service-price {
+    margin: 10px auto;
+    font-size: 0.9rem;
+    padding: 4px 10px;
+    min-width: 80px;
+}
+
+.type-tag {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+
+.project-card::before {
+    content: '</>';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 80px;
+    opacity: 0.1;
+    color: #64ffda;
+}
+
+/* Tech Tags Glass Effect */
+.tech-tags {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-tags span {
+    background: rgba(100, 255, 218, 0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    border: 1px solid rgba(100, 255, 218, 0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.2s ease;
+}
+
+.tech-tags span:hover {
+    transform: scale(1.05);
+    background: rgba(100, 255, 218, 0.2);
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.1);
+}
+
+/* Add glass reflection effect to project cards */
+.project-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.02) 0%,
+        rgba(255, 255, 255, 0.01) 50%,
+        rgba(255, 255, 255, 0.02) 100%
+    );
+    transform: rotate(30deg);
+    z-index: 1;
+    pointer-events: none;
+    animation: glass-reflect 10s infinite linear;
+}
+
+.contact {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 20px;
+    background: #020c1b;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background: #112240;
+    border: 1px solid #64ffda;
+    color: #64ffda;
+}
+
+button {
+    background: #64ffda;
+    color: #0a192f;
+    padding: 10px 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end);
+}
+
+/* Particles animation */
+
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 5; /* Add z-index */
+}
+
+.particle {
+    position: absolute;
+    background: #64ffda;
+    border-radius: 50%;
+    will-change: transform, opacity;
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.7);
+    animation: float 10s linear infinite, shine 2s ease-in-out infinite;
+}
+
+/* Add shiny sparkle effect */
+.particle::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 30%;
+    height: 30%;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    filter: blur(1px);
+}
+
+@keyframes shine {
+    0%, 100% {
+        opacity: 0.8;
+        box-shadow: 0 0 15px rgba(100, 255, 218, 0.7);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 25px rgba(131, 252, 224, 0.9);
+    }
+}
+
+/* Update float animation for better visibility */
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(50vw);
+        opacity: 0;
+    }
+}
+
+/* Social Section */
+.social-section {
+    background: #0a192f;
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 1px solid #64ffda33;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    font-size: 2.5rem;
+    color: #64ffda;
+    transition: all 0.3s ease;
+    position: relative;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+    color: #2ecc71;
+}
+
+.social-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #2ecc71;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover::after {
+    transform: scaleX(1);
+}
+
+.coding-quote {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 20px;
+    border-left: 3px solid #64ffda;
+    background: #112240;
+    border-radius: 5px;
+}
+
+.coding-quote p {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #ccd6f6;
+    margin: 0;
+    font-family: 'Brush Script MT', cursive;
+}
+
+.coding-quote p::before {
+    content: open-quote;
+    font-size: 2rem;
+    color: #64ffda;
+}
+
+.coding-quote p::after {
+    content: close-quote;
+    font-size: 2rem;
+    color: #64ffda;
+}
