@@ -16,13 +16,13 @@ const projects = [
         title: "<b>Face Recognition System</b>", 
         tech: "<b>Python, CNN, Tensorflow, CV2</b>", 
         type: "<b>Type: Machine learning</b>",
-        price: "3000TK"
+        price: "1500TK"
     },
     { 
         title: "<b>Hand sign Recognition System</b>", 
         tech: "<b>Python, tensorflow, CV2</b>", 
         type: "<b>Type: Machine learning</b>",
-        price: "3000TK"
+        price: "1500TK"
     }
 ];
 
